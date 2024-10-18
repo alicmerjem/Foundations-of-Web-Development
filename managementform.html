@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Management Form</title>
+</head>
+<body>
+    <h1 style="color: green;"><center>Subscription Management Form</center></h1>
+    <hr>
+
+    <form method="post">
+        <fieldset>
+            <legend>Details</legend>
+            <label for="email"><b><u>Email: </u></b></label>
+            <input type="text" id="email" name="email"> <br>
+
+            <label for="link"><b><u>Link: </u></b></label>
+            <input type="text" id="link" name="link"> <br>
+
+            <label for="password"><b><u>Password: </u></b></label>
+            <input type="password" id="password" name="password">
+        </fieldset>
+
+        <fieldset>
+            <legend>Reasons for ending the subscription: </legend>
+            <label for="problem"><b>Select reason: </b></label>
+            <select name="problem1" id="other">
+                <option value="bq" selected="selected">Bad Quality</option>
+                <option value="ss" selected="selected">Small Size</option>
+                <option value="other" selected="selected">Other</option>
+            </select> <br>
+        </fieldset>
+
+        <label for="options"><i>Would you use one of our tools again?</i></label> <br>
+        <input type="radio" id="yes" name="useAgain" value="Yes">
+        <label for="yes">Yes</label> <br>
+        <input type="radio" id="no" name="useAgain" value="No">
+        <label for="no">No</label> <br>
+        <input type="radio" id="maybe" name="useAgain" value="Maybe">
+        <label for="maybe">Maybe</label> <br>
+
+        <label for="addt">Additional comments: </label> <br>
+        <textarea minlength="100" maxlength="1000">Your comments...</textarea> <br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+</body>
+</html>
