@@ -6,12 +6,59 @@
     <title>My CV</title>
 </head>
 <body>
-    <h1>Merjem Alić</h1>
+    <header>
+        <h1>Merjem Alić</h1>
+    </header>
     <img src="somepfp.png" height="150" alt="Some picture description">
+    <nav>
+        <a href="#">About me</a> <br>
+        <a href="#">Experience</a> <br>
+        <a href="#">Skills</a>
+    </nav>
     <hr>
     <h2>Introduction</h2>
     <p>My name is <b>Merjem Alić</b> and I am a first-year IT major studying at <b>International Burch University</b>. I have experience in C++, HTML, CSS and JavaScript. <br> I specialize in Front-end development.</p>
     <hr>
+
+    <h2>Your location</h2>
+
+    <button onclick="getLocation()">Get My Location</button>
+<p id="location"></p>
+
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            document.getElementById("location").innerText = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        document.getElementById("location").innerText = 
+            `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                document.getElementById("location").innerText = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById("location").innerText = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                document.getElementById("location").innerText = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                document.getElementById("location").innerText = "An unknown error occurred.";
+                break;
+        }
+    }
+</script>
+
+    <hr>
+
     <h2>Skills</h2>
     <dl>
         <dt>Skills:</dt>
@@ -19,6 +66,13 @@
         <dt>- Node.js, React.js</dt>
         <dt>- Version control (Git, Github)</dt>
     </dl>
+
+    <hr>
+
+    <article>
+        <h1>Professional experience</h1>
+        <p>Over the past few years, I have worked on a number of school projects and personal projects. I specialize in Front-end development and Data base management. <br> I have succesfully created a software solution for healthcare professionals as a part of my high school project, as well as some of my personal works (To-Do List, remaking some famous website pages...)</p>
+    </article>
 
     <hr>
     <h2>Experience</h2>
@@ -49,7 +103,15 @@
         <dt>Email</dt>
         <dd>merjem.alic@stu.ibu.edu.ba</dd>
         <dt>Location</dt>
-        <dd>Sarajevo, Bosnia and Herzegowina</dd>
+        <dd>Sarajevo, Bosnia and Herzegowina</dd> <br>
     </dl>
+
+    <hr>
+
+    <footer>
+        <p>Contact : merjem.alic@stu.ibu.edu.ba</p>
+        <p>© 2024 Merjem Alić</p>
+    </footer>
+
 </body>
 </html>
