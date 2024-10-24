@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+
+    <style>
+        /* Styling for the drop area */
+        #div1 {
+            width: 400px;
+            height: 220px;
+            border: 2px solid black;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        /* Styling for draggable elements */
+        .skill {
+            padding: 10px;
+            margin: 5px;
+            background-color: #ddd;
+            cursor: move;
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault(); // Prevent default behavior to allow dropping
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id); // Set the id of the element being dragged
+        }
+
+        function drop(ev) {
+            ev.preventDefault(); // Prevent default handling
+            var data = ev.dataTransfer.getData("text"); // Get the id of the dragged element
+            ev.target.appendChild(document.getElementById(data)); // Append it to the drop area
+        }
+    </script>
+</head>
+<body>
+    <h1>Drag and Drop Skills</h1>
+
+    <h2>Drag and Drop Your Skills</h2>
+
+    <!-- Drop area for skills -->
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Drop your skills here
+    </div>
+
+    <!-- Draggable skill elements -->
+    <p id="skill1" class="skill" draggable="true" ondragstart="drag(event)">HTML</p>
+    <p id="skill2" class="skill" draggable="true" ondragstart="drag(event)">CSS</p>
+    <p id="skill3" class="skill" draggable="true" ondragstart="drag(event)">JavaScript</p>
+</body>
+</html>
