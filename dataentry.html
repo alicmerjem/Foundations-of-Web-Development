@@ -3,102 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dataentry.css">
     <title>CV Data Entry Form</title>
 </head>
 <body>
-    <h1 style="color: green;"><center>CV Data Entry Form</center></h1>
-    <hr>
 
-    <form action="#" method="post">
-        <fieldset>
-            <legend>Personal information</legend>
+    <div class="form-container">
+        <h1>CV Data Entry Form</h1>
+        <hr>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Personal information</legend>
+    
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name"> <br>
+                <label for="email">Email: </label>
+                <input type="text" id="email" name="email"> <br>
+                <label for="location">Location: </label>
+                <input type="text" id="location" name="location"> <br>
+                <label for="pfp">Upload a profile picture: </label>
+                <input type="file" id="pfp" name="pfp">
+            </fieldset>
 
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name"> <br>
-            <label for="email">Email: </label>
-            <input type="text" id="email" name="email"> <br>
-            <label for="location">Location: </label>
-            <input type="text" id="location" name="location"> <br>
-            <label for="pfp">Upload a profile picture: </label>
-            <input type="file" id="pfp" name="pfp">
-        </fieldset>
-    </form>
+            <fieldset>
+                <legend>Introduction</legend>
+                <label for="txt">Add a short introduction about yourself: </label> <br>
+                <textarea minlength="100" maxlength="1000"></textarea>
+            </fieldset>
 
-    <form method="post">
-        <fieldset>
-            <legend>Introduction</legend>
-            <label for="txt">Add a short introduction about yourself: </label> <br>
-            <textarea minlength="100" maxlength="1000"></textarea>
-        </fieldset>
-    </form>
+            <fieldset>
+                <legend>
+                    Skills
+                </legend>
+                <label for="options">Select your skills: </label> <br>
+    
+                <input type="checkbox" name="opt1" id="opt1" value="HTML">
+                <label for="opt1">HTML</label> <br>
+    
+                <input type="checkbox" name="opt2" id="opt2" value="CSS">
+                <label for="opt2">CSS</label> <br>
+    
+                <input type="checkbox" name="opt3" id="opt3" value="JavaScript">
+                <label for="opt1">JavaScript</label> <br>
+    
+                <input type="checkbox" name="opt4" id="opt4" value="React">
+                <label for="opt4">React</label> <br>
+    
+                <input type="checkbox" name="opt5" id="opt5" value="Node.js">
+                <label for="opt1">Node.js</label> <br>
+    
+                <input type="checkbox" name="opt6" id="opt6" value="Git">
+                <label for="opt1">Git</label> <br>
+    
+                <input type="checkbox" name="opt7" id="opt7" value="Express">
+                <label for="opt1">Express</label> <br>
+    
+                <input type="checkbox" name="opt8" id="opt8" value="WPO">
+                <label for="opt1">Web Performance Optimization</label>
+            </fieldset>
 
-    <form>
-        <fieldset>
-            <legend>
-                Skills
-            </legend>
-            <label for="options">Select your skills: </label> <br>
+            <fieldset>
+                <legend>Experience</legend>
+                <label for="position">Current position: </label>
+                <input type="text" id="position" name="position"> <br>
+                <label for="exp">Describe your experience: </label> <br>
+                <textarea minlength="100" maxlength="100"></textarea>
+            </fieldset>
 
-            <input type="checkbox" name="opt1" id="opt1" value="HTML">
-            <label for="opt1">HTML</label> <br>
+            <fieldset>
+                <legend>Education & Certifications</legend>
+                <label for="degree">Degree: </label>
+                <select name="hs" id="hs">
+                    <option value="highschool" selected="selected">High School</option>
+                    <option value="cbsc" selected="selected">College (BSc)</option>
+                    <option value="cma" selected="selected">College (MA)</option>
+                    <option value="cphd" selected="selected">College (PhD)</option>
+                </select> <br>
+    
+                <label for="cert">Certifications: </label> <br>
+                <textarea minlength="100" maxlength="1000"></textarea>
+            </fieldset>
 
-            <input type="checkbox" name="opt2" id="opt2" value="CSS">
-            <label for="opt2">CSS</label> <br>
+            <fieldset>
+                <legend>Personal projects: </legend>
+                <label for="projects">Describe your personal projects: </label> <br>
+                <textarea minlength="100" maxlength="1000"></textarea>
+            </fieldset>
+    
+            <input type="submit" value="Submit CV" class="submit-button">
 
-            <input type="checkbox" name="opt3" id="opt3" value="JavaScript">
-            <label for="opt1">JavaScript</label> <br>
 
-            <input type="checkbox" name="opt4" id="opt4" value="React">
-            <label for="opt4">React</label> <br>
+        </form>
+    
 
-            <input type="checkbox" name="opt5" id="opt5" value="Node.js">
-            <label for="opt1">Node.js</label> <br>
+    </div>
 
-            <input type="checkbox" name="opt6" id="opt6" value="Git">
-            <label for="opt1">Git</label> <br>
-
-            <input type="checkbox" name="opt7" id="opt7" value="Express">
-            <label for="opt1">Express</label> <br>
-
-            <input type="checkbox" name="opt8" id="opt8" value="WPO">
-            <label for="opt1">Web Performance Optimization</label>
-        </fieldset>
-    </form>
-
-    <form>
-        <fieldset>
-            <legend>Experience</legend>
-            <label for="position">Current position: </label>
-            <input type="text" id="position" name="position"> <br>
-            <label for="exp">Describe your experience: </label> <br>
-            <textarea minlength="100" maxlength="100"></textarea>
-        </fieldset>
-    </form>
-
-    <form>
-        <fieldset>
-            <legend>Education & Certifications</legend>
-            <label for="degree">Degree: </label>
-            <select name="hs" id="hs">
-                <option value="highschool" selected="selected">High School</option>
-                <option value="cbsc" selected="selected">College (BSc)</option>
-                <option value="cma" selected="selected">College (MA)/option>
-                <option value="cphd" selected="selected">College (PhD)</option>
-            </select> <br>
-
-            <label for="cert">Certifications: </label> <br>
-            <textarea minlength="100" maxlength="1000"></textarea>
-        </fieldset>
-    </form>
-
-    <form>
-        <fieldset>
-            <legend>Personal projects: </legend>
-            <label for="projects">Describe your personal projects: </label> <br>
-            <textarea minlength="100" maxlength="1000"></textarea>
-        </fieldset>
-
-        <input type="submit" value="Submit CV">
-    </form>
+ 
 </body>
 </html>
