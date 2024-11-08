@@ -1,0 +1,236 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Creator Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .accordion-button {
+            font-weight: bold;
+            color: #333;
+            background-color: #f8f9fa;
+            border: none;
+            box-shadow: none;
+            padding: 15px;
+            color: #1a75ff;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        .accordion-button::after {
+            content: '+';
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #007bff;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            content: '-';
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .accordion-body {
+            padding: 15px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.875rem;
+        }
+
+        /* Collapsible Accordion Styling */
+        .accordion-header input[type="checkbox"] {
+            display: none;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">CV Creator Tool</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Left aligned navigation links -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Features</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Contact Us</a></li>
+            </ul>
+
+            <!-- Right aligned buttons -->
+            <div class="d-flex ms-auto">
+                <button class="btn btn-outline-light me-2" type="button">Sign In</button>
+                <button class="btn btn-light me-2" type="button" onclick="window.location.href='registration.html'">Register</button>
+                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#notificationModal">Notifications</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container text-center my-5">
+        <h1>Welcome to CV Creator Tool</h1>
+        <h6>Create, Customize, and Download Professional CVs in Minutes</h6>
+        <hr>
+        <a href="#" class="btn btn-success btn-lg">Create Your CV Now!</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container my-5">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card border-1">
+                    <div class="card-body">
+                        <h5>AI Plagiarism Checker</h5>
+                        <p>Ensure originality with AI-powered plagiarism checks.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-1">
+                    <div class="card-body">
+                        <h5>Top 10 Interview Questions</h5>
+                        <p>Prepare confidently with curated interview questions.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-1">
+                    <div class="card-body">
+                        <h5>Template Library</h5>
+                        <p>Choose from a wide variety of CV templates.</p>
+                        <a href="#" class="btn btn-primary">Explore Templates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container text-center my-5">
+        <h5>About CV Creator Tool</h5>
+        <hr>
+        <p style="color: #339966;">CV Creator Tool is your go-to platform for building professional resumes. With a wide range of customizable templates, AI-powered tools, and expert resources, we help you stand out in the job market. Get ready to create a stunning CV that highlights your skills and achievements effortlessly.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container text-center my-5">
+        <h2 class="mb-4">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Question #1: <b> Subscription deadline?</b>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The subscription deadline is December 31st, 2024. Be sure to register before this date to access all features!
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Question #2: <b> Who can apply?</b>
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our CV Creator Tool is open to everyone! Whether you’re a student, professional, or job seeker, you can apply.
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Question #3: <b> How to apply?</b>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Simply click on the "Register" button at the top of the page and fill out the required information.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="container text-center my-5">
+        <h2>Check out Different Notification Types</h2>
+        <button class="btn btn-primary m-2">Notification 1</button> <br>
+        <button class="btn btn-danger m-2" disabled>Notification 2 (Disabled)</button> <br>
+        <button class="btn btn-success m-2">Notification 3</button>
+    </div>
+
+    <div class="container-fluid text-center my-5">
+        <h2>Our Location</h2>
+        <hr>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2871.875064508068!2d18.41307611547089!3d43.85625847911552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758c8b1f8e52f35%3A0x61658b97b4a80e5f!2sSarajevo!5e0!3m2!1sen!2sba!4v1699459993640!5m2!1sen!2sba" width="80%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <br>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 CV Creator Tool. All rights reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Service</a> |
+        <a href="#" class="text-white">Contact Us</a>
+        <p>Contact: +38761234567</p>
+        <p>Email: something@gmail.com</p>
+        <p>Work Hours: 8:00 - 16:00 (Workdays only!)</p>
+    </footer>
+
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You have no new notifications at this time.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
