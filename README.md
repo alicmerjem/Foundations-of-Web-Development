@@ -1,2 +1,1 @@
-# Forms
-Lab week 3 - practicing using HTML forms
+This repository is used to showcase lab work for the Foundations of Web Development course. 
