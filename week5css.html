@@ -15,9 +15,9 @@
             <div class="contact">
                 <h3>Contact</h3>
                 <ul>
-                    <li>Phone: 123-456-7890</li>
-                    <li>Email: merjem.alic@example.com</li>
-                    <li>Location: Sarajevo, Bosnia and Herzegovina</li>
+                    <li>Phone: 123-456-7890</li> <!-- This will be updated dynamically -->
+                    <li>Email: merjem.alic@example.com</li> <!-- This will be updated dynamically -->
+                    <li>Location: Sarajevo, Bosnia and Herzegovina</li> <!-- This will be updated dynamically -->
                 </ul>
             </div>
             <div class="education">
@@ -80,6 +80,48 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function() {
+        // Retrieve data from localStorage
+        let cvData = JSON.parse(localStorage.getItem('cvData'));
+
+        if (cvData) {
+            // Update the CV with the stored data
+            document.querySelector(".name").textContent = cvData.name || 'Merjem Alić';  // Use a default name if none provided
+            document.querySelector(".title").textContent = "Web Developer";  // This can be modified based on your needs
+
+            // Dynamically update the contact information
+            let contactList = document.querySelector(".contact ul");
+            contactList.innerHTML = `
+                <li>Phone: ${cvData.phone || '123-456-7890'}</li>
+                <li>Email: ${cvData.email || 'merjem.alic@example.com'}</li>
+                <li>Location: ${cvData.location || 'Sarajevo, Bosnia and Herzegovina'}</li>
+            `;
+
+            // Update profile picture if available
+            if (cvData.pfp) {
+                document.querySelector(".pfp").src = cvData.pfp;
+            }
+
+            // Update the intro section
+            document.querySelector(".intro p").innerHTML = `Hi, my name is <b>${cvData.name}</b>. ${cvData.intro || 'I am a passionate web developer with 2 years of experience.'}`;
+
+            // Update skills list
+            let skillsList = document.querySelector(".skills ul");
+            skillsList.innerHTML = "";  // Clear any previous skills
+            if (cvData.skills && cvData.skills.length > 0) {
+                cvData.skills.forEach(function(skill) {
+                    let li = document.createElement('li');
+                    li.textContent = skill;
+                    skillsList.appendChild(li);
+                });
+            } else {
+                skillsList.innerHTML = `<li>Skills not available</li>`;
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
