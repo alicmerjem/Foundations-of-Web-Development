@@ -11,7 +11,7 @@
     <div class="form-container">
         <h1>CV Data Entry Form</h1>
         <hr>
-        <form action="#" method="post">
+        <form action="#" method="post" onsubmit="saveCVData(event)">
             <fieldset>
                 <legend>Personal information</legend>
     
@@ -98,6 +98,41 @@
 
     </div>
 
+
+    <script>
+        function saveCVData(event) {
+            event.preventDefault();  // Prevents form submission
+    
+            // Get values from the form
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let location = document.getElementById("location").value;
+            let pfp = document.getElementById("pfp").files[0] ? document.getElementById("pfp").files[0].name : '';  // Store the image name
+            let intro = document.querySelector("textarea").value;
+    
+            // Get skills (checkbox values)
+            let skills = [];
+            let checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
+            checkboxes.forEach(function(checkbox) {
+                skills.push(checkbox.value);
+            });
+    
+            // Store data in localStorage
+            localStorage.setItem('cvData', JSON.stringify({
+                name: name,
+                email: email,
+                location: location,
+                pfp: pfp,
+                intro: intro,
+                skills: skills
+            }));
+    
+            alert("CV Data Saved! You can now view it in the CV section.");
+
+            window.location.href="week5css.html";
+        }
+    </script>
+    
  
 </body>
 </html>
