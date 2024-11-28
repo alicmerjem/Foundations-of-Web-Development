@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styling.css">
+    <script src="/week9/script.js"></script>
+    <title>CV Creator Tool Pricing Page</title>
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="navbar-container">
+        <h1>CV Creator Tool</h1>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="pricing">
+    <table id="pricingTable">
+        <thead>
+            <tr> 
+                <th>Product</th>
+                <th>Price per Piece ($)</th>
+                <th>Amount</th>
+                <th>Current Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Top 10 Interview questions</td>
+                <td>5</td>
+                <td><input type="number" id="basicCVQuantity" value="1"></td>
+                <td class="price" data-price="5">5.00</td>
+            </tr>
+
+            <tr>
+                <td>Best CV Tricks</td>
+                <td>10</td>
+                <td><input type="number" id="bestTricks" value="1"></td>
+                <td class="price" data-price="10">10.00</td>
+            </tr>
+
+            <tr>
+                <td>AI Plagiarism Check</td>
+                <td>15</td>
+                <td><input type="number" id="plagiarismCheck" value="1"></td>
+                <td class="price" data-price="15">15.00</td>
+            </tr>
+
+            <tr>
+                <td>Professional Resume Templates</td>
+                <td>20</td>
+                <td><input type="number" id="profTemplates" value="1"></td>
+                <td class="price" data-price="20">20.00</td>
+            </tr>
+
+            <tr>
+                <td>Mock Interview Session</td>
+                <td>25</td>
+                <td><input type="number" id="interviewSession" value="1"></td>
+                <td class="price" data-price="25">25.00</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="buyButton">Buy</button>
+</section>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>Total Price</h2>
+        <p id="totalPrice"></p>
+        <p id="averagePrice"></p>
+        <p id="avg-down"></p>
+        <p id="avg-up"></p>
+        <button id="closeModal">Close</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy 2024 CV Creator Tool. All rights reserved.</p>
+    <p><a href="">Privacy Policy</a></p>
+    <p><a href="">Terms of Use</a></p>
+    <p><a href="">Contact Us</a></p>
+    <p>Contact: +38761234567 | Email: something@example.com</p>
+    <p>Work hours: 8:00 - 16:00</p>
+</footer>
+
+</body>
+</html>
