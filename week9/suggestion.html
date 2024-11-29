@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="suggestion.css">
+    <script defer src="suggestion.js"></script>
+    <title>Template Suggestions Based on Skills</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Template Suggestions Based on Skills</h1>
+    </div>
+    
+    <div class="container">
+        <!-- Skills selection -->
+        <div class="skills-section">
+            <h3>Select Your Skills:</h3>
+            <form id="skills-form">
+                <label><input type="checkbox" value="JavaScript"> JavaScript</label><br>
+                <label><input type="checkbox" value="HTML"> HTML</label><br>
+                <label><input type="checkbox" value="CSS"> CSS</label><br>
+                <label><input type="checkbox" value="React"> React</label><br>
+                <label><input type="checkbox" value="Photoshop"> Photoshop</label><br>
+                <label><input type="checkbox" value="Illustrator"> Illustrator</label><br>
+                <label><input type="checkbox" value="Sketch"> Sketch</label>
+            </form>
+            <button id="suggest-button">Suggest Templates</button>
+        </div>
+        
+        <!-- Suggested templates -->
+        <div class="templates-section">
+            <h3>Suggested Templates:</h3>
+            <ul id="template-list">
+                <!-- Suggestions will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
