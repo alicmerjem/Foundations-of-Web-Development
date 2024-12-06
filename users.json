@@ -1,0 +1,21 @@
+[
+    {
+        "name" : "John Doe",
+        "uname" : "johndoe123",
+        "emailadd" : "johndoe@example.com",
+        "pass" : "securepassword123",
+        "age" : 25,
+        "phonenum" : "123-456-7890",
+        "gender" : "Male"
+    },
+
+    {
+        "name" : "Jane Doe",
+        "uname" : "janedoe123",
+        "email" : "janedoe@example.com",
+        "pass" : "securepassword12",
+        "age" : 25,
+        "phonenum" : "987-654-3210",
+        "gender" : "Female"
+    }
+]
