@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch User Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Posts</h1>
+
+    <div id="userPostsContainer"></div>
+
+    <script>
+        // Task 1: Using promises to fetch user data and posts sequentially
+        function fetchUserPosts() {
+            // Step 1: Fetch user data from the users endpoint
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())  // Parse the response as JSON
+                .then(users => {
+                    // Step 2: Use the first user's ID to fetch their posts
+                    const userId = users[0].id;  // Get the first user ID
+                    return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+                })
+                .then(response => response.json())  // Parse the posts response as JSON
+                .then(posts => {
+                    // Step 3: Log the user's name and their posts
+                    console.log('User Posts:');
+                    posts.forEach(post => {
+                        console.log(`User: ${post.userId}, Post Title: ${post.title}`);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        // Call the function to see it in action
+        fetchUserPosts();
+
+
+        // Task 2: Using async/await to fetch and display posts
+        async function fetchAndDisplayPosts() {
+            try {
+                // Fetch user data
+                const userResponse = await fetch('https://jsonplaceholder.typicode.com/users');
+                if (!userResponse.ok) throw new Error('Failed to fetch users');
+                const users = await userResponse.json();
+                const userId = users[0].id;  // Get the first user ID
+
+                // Fetch posts based on user ID
+                const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+                if (!postsResponse.ok) throw new Error('Failed to fetch posts');
+                const posts = await postsResponse.json();
+
+                // Create HTML elements to display the post titles
+                const postsList = document.createElement('ul');
+                posts.forEach(post => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = post.title;  // Set post title
+                    postsList.appendChild(listItem);    // Add to list
+                });
+
+                // Append the list to the container
+                const container = document.getElementById('userPostsContainer');
+                container.appendChild(postsList);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        }
+
+        // Call the async function to fetch and display posts
+        fetchAndDisplayPosts();
+    </script>
+
+</body>
+</html>
