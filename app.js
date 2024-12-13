@@ -1,5 +1,3 @@
-// app.js
-
 // function to handle routing based on the current URL path
 function route() {
     const route = window.location.pathname; // Get the current path of the URL
@@ -15,15 +13,15 @@ function route() {
         `;
     }
 
-    // handle specific routes
+    // handle login route
     else if (route === '/login') {
         container.innerHTML = `
             <div class="container">
                 <div class="form-box">
                     <h2>Login</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Username" required><br><br>
-                        <input type="password" placeholder="Password" required><br><br>
+                    <form id="login-form">
+                        <input type="text" id="email" placeholder="Email" required><br><br>
+                        <input type="password" id="password" placeholder="Password" required><br><br>
                         <button type="submit">Login</button><br><br>
                         <a href="#" onclick="navigateTo('/register')">Register</a> | 
                         <a href="#" onclick="navigateTo('/forgot-password')">Forgot Password?</a>
@@ -31,8 +29,11 @@ function route() {
                 </div>
             </div>
         `;
-    } 
-    
+        // Add event listener to handle login form submission
+        document.getElementById('login-form').addEventListener('submit', handleLogin);
+    }
+
+    // handle register route
     else if (route === '/register') {
         container.innerHTML = `
             <div class="container">
@@ -50,6 +51,7 @@ function route() {
         `;
     }
     
+    // handle forgot password route
     else if (route === '/forgot-password') {
         container.innerHTML = `
             <div class="container">
@@ -64,6 +66,32 @@ function route() {
             </div>
         `;
     }
+}
+
+// Function to handle login form submission
+function handleLogin(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // Fetch the users from the JSON file
+    fetch('usersr.json')
+        .then(response => response.json())
+        .then(users => {
+            const user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+                // If user exists, navigate to home page
+                navigateTo('/home');
+            } else {
+                // If user does not exist, show error message
+                alert('Incorrect email or password. Please try again or reset your password.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching users:', error);
+            alert('An error occurred while checking your credentials. Please try again.');
+        });
 }
 
 // function to navigate to a specific route and update the URL without refreshing the page
