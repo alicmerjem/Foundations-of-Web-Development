@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations of Web Development</title>
+    <style>
+        .breadcrumb {
+            background-color: #f0f0f0;
+            padding: 10px;
+            list-style-type: none;
+            display: flex;
+        }
+        .breadcrumb li {
+            margin-right: 5px;
+        }
+        .breadcrumb li::after {
+            content: ">";
+            margin-left: 5px;
+        }
+        .breadcrumb li:last-child::after {
+            content: "";
+        }
+        .category, .subcategory {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Foundations of Web Development</h1>
+
+    <!-- Static Breadcrumb navigation -->
+    <ul id="breadcrumb" class="breadcrumb">
+        <li>Home</li> <!-- This will always be displayed at the top -->
+    </ul>
+
+    <!-- Category and Subcategory navigation links -->
+    <div id="category-container"></div>
+
+    <!-- Category or subcategory content will go here -->
+    <div id="content"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
